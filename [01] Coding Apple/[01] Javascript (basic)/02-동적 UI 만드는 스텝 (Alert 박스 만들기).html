@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- UI 만드는 step 
+        1. HTML/CSS로 미리 디자인해놓고 숨김(display: none)
+        2. 필요할 때 보여달라고(display: block) javascript로 코드짬 -->
+
+    <!-- [오늘의 과제] '닫기'버튼을 하나 더 만들어서, 눌렀을 때 알림창이 닫히도록 구현-->
+
+    <div class="alert-box">알림창</div>
+    <button onclick="document.querySelector('.alert-box').style.display = 'block';">열기</button>
+    <button onclick="document.querySelector('.alert-box').style.display = 'none';">닫기</button>
+
+    <style>
+    .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        color: white;
+        border-radius: 5px;
+        display: none;
+    }
+    </style>
+</body>
+</html>

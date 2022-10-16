@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        제이쿼리(jQuery) 사용하는 이유: 쌩자바스크립트보다 코드가 짧고 간결함 / 동일 클래스명 한번에 처리가능 
+        제이쿼리(jQuery) 사용법: jquery cdn 검색해서 복붙
+        보통 다른 라이브러리는 body 태그 끝나기 직전에 script를 붙이는데 제이쿼리는 head에 넣는 것도 괜춘.
+        * 제이쿼리는 설치한 곳 '하단'에서 제이쿼리 문법을 사용 가능함 *
+    -->
+    <div class="test-box">
+        <p class="test-01">헤이 모두들 안녕</p>
+        <p class="test-01">헤이 모두들 안녕</p>
+        <p class="test-01">헤이 모두들 안녕</p>
+    </div>
+
+    <div class="test-box">
+      <p class="test-02">내가 누군지 아니</p>
+      <p class="test-02">내가 누군지 아니</p>
+      <p class="test-02">내가 누군지 아니</p>
+    </div>
+
+    <style>
+      .test-box {
+        padding: 20px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border: 1px solid #111;
+        border-radius: 5px;
+        background-color: yellow;
+      }
+    </style>
+    <script>
+        $('.test-01').css('color', 'red'); 
+        //제이쿼리: test-01이라는 class를 가진 '모든' 태그에 적용됨
+        document.querySelector('.test-02').style.color = 'blue'; 
+        //자바스크립트: test-02이라는 class를 가진 '첫번째' 태그에만 적용됨
+
+        document.querySelectorAll('.test-02')[0].style.color = 'blue';
+        document.querySelectorAll('.test-02')[1].style.color = 'blue';
+        document.querySelectorAll('.test-02')[2].style.color = 'blue';
+        //자바스크립트로 모든 클래스 일괄 변경하려면 이렇게 순서를 붙여서 여러줄 써야함
+
+        $('.test-01').addClass('show'); //기타 함수: removeClass(), toggleClass()
+        
+        //제이쿼리 문법과 자바스크립트 문법 대응
+        //$ <-> querySelector, on <-> addEventListener
+        
+        //제이쿼리 유용한 기본함수 (애니메이션)
+        //show(), fadeIn(), slideDown(), hide(), fadeOut(), slideUp(), fadeToggle()
+    </script>
+</body>
+</html>

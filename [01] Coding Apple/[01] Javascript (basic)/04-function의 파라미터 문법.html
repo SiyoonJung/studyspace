@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- function 문법의 ()안의 parameter를 이용하면 함수가 2개나 필요없음.
+    함수를 하나만 정의하고, ()안에 들어갈 parameter로 'none'과 'block'을 지정하면 됨. -->
+
+    <!-- [오늘의 과제] 버튼1, 버튼2를 만들어서
+    버튼1을 누르면 '아이디를 입력하세요'라는 alert box가 등장해야 합니다.
+    버튼2를 누르면 '비밀번호를 입력하세요'라는 alert box가 등장해야 합니다. -->
+
+    <div class="alert-box">알림창</div>
+    <button onclick="alert('block')">열기</button>
+    <button onclick="alert('none')">닫기</button>
+
+    <div class="input-box"></div>
+    <button onclick="inputAlert('아이디')">버튼1</button>
+    <button onclick="inputAlert('비밀번호')">버튼2</button>
+    
+    <style>
+    .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        color: white;
+        border-radius: 5px;
+        display: none;
+    }
+    .input-box {
+        background-color: pink;
+        padding: 30px;
+        color: black;
+        border-radius: 5px;
+        display: none;
+        text-align: center;
+    }
+    </style>
+    <script>
+        function alert(a) {
+            document.querySelector('.alert-box').style.display = a;
+        }
+        function inputAlert(value) {
+            document.querySelector('.input-box').innerHTML = value + '를 입력하세요';
+            document.querySelector('.input-box').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

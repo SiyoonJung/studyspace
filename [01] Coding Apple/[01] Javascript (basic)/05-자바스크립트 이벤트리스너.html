@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 셀렉터: getElementsByClassName 
+    id는 유일무이하지만 class는 중복될 수 있으므로 [순서]를 붙여줘야 함
+    포맷: document.getElementsByClassName('클래스명')[순서]
+    -->
+
+    <!-- 이벤트리스너(EventListener)를 사용해서 script 안에 적으면 굳이 html에 onclick 어쩌구 등 자바스크립트를 적을 필요없음
+    예) document.getElementById('title').addEventListener('click', function(){
+        실행할 코드
+    }) 의미: id가 'title'인 요소를 'click'하면 중괄호 이하 코드를 실행해 주세요.-->
+    
+    <!-- 잠깐 용어정리 
+        이벤트: click, mouseover, scroll, keydown 등 수십가지가 있음. 그때그때 찾아보는 것이 좋음. 
+        참고사이트) https://developer.mozilla.org/en-US/docs/Web/Events 
+        콜백함수: 쉽게 말해서 함수 모양의 parameter라 생각하면 됨. 함수가 parameter가 된다고? 응, 맞아.
+    -->
+    <div class="alert-box" id="alert">
+        <h1 id="title">알림창</h1>
+        <button id="close">X</button>
+    </div>
+
+    <style>
+        .alert-box {
+            padding: 20px;
+            position: relative;
+            background-color: yellow;
+            color: black;
+            text-align: center;
+        }
+        #close {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+    </style>
+    <script>
+        //닫기 버튼(id="close")을 클릭하면 알림창 UI가 사라지도록(display='none')
+        document.getElementById('close').addEventListener('click', function() {
+            document.querySelector('.alert-box').style.display = 'none';
+        })
+    </script>
+</body>
+</html>

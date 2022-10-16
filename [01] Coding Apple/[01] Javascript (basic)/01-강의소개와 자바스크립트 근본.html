@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- JS로 html 조작하는 법(HTML의 모든 것을 바꿀 수 있음) -->
+    <h1 id="hello">안녕하세요</h1>
+    <h2 id="hi">JS 초보에요</h2>
+
+    <script>
+        
+        // 내용바꾸기
+        document.getElementById('hello').innerHTML = '안녕';
+        document.getElementById('hi').innerHTML = 'JS 고수에요';
+
+        // 스타일 변경
+        document.getElementById('hello').style.color = 'red';
+
+        // 기타 등등 매우 많지만 일일히 암기하는 것이 아니라 검색해서 그때그때 사용하도록 함.
+        // 검색팁: 영어로 검색하는 게 효율이 좋다 (ex. javascript how to change text red)
+
+        // [오늘의 과제] h1 태그(id="hello") 글자 크기를 16px로 줄이기
+        document.getElementById('hello').style.fontSize = '16px';
+    </script>
+</body>
+</html>
