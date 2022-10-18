@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="content-box">
+    <h1>modified 369Game</h1>
+    <p>숫자를 입력하세요.</p>
+    <input type="number" id="gameNumber01">
+    <button type="submit" class="game01-btn">제출</button>
+  </div>
+
+  <div class="content-box">
+    <h1>upgraded 369Game</h1>
+    <p>숫자를 입력하세요.</p>
+    <input type="number" id="gameNumber02">
+    <button type="submit" class="game02-btn">제출</button>
+  </div>
+
+  <div class="content-box">
+    <h1>original 369Game</h1>
+    <p>숫자를 입력하세요.</p>
+    <input type="number" id="gameNumber03">
+    <button type="submit" class="game03-btn">제출</button>
+  </div>
+
+  <div class="content-box second">
+    <h1>공인중개사(1차) 합격판독기</h1>
+    <p>해당 과목 점수를 입력하세요.</p>
+    <button type="submit" class="game02-btn">제출</button>
+    <table>
+      <tr>
+        <td>부동산학개론 점수</td>
+        <td>민법 점수</td>
+      </tr>
+      <tr>
+        <td><input type="number" id="score01"></td>
+        <td><input type="number" id="score02"></td>
+      </tr>
+    </table>
+  </div>
+
+  <style>
+    .content-box {
+      width: 100%;
+      height: auto;
+      box-sizing: border-box;
+      padding: 30px;
+      margin-bottom: 50px;
+      border-radius: 1rem;
+      text-align: center;
+      background: linear-gradient(120deg,#69d6da,#3f87a6);
+    }
+    .content-box.second {
+      background: linear-gradient(120deg,#d68fc8,#ad7bd6);
+    }
+    table {
+      width: 100%;
+      margin: 0 auto;
+    }
+  </style>
+
+  <script>
+    //과제들
+    //1-1. 369게임을 각색하여 '3의 배수'에서 박수를 치면 되는 게임을 하고 있습니다. 어떤 숫자를 함수 안에 집어넣으면 박수를 쳐야할지 말아야할지 판단해주는 함수를 만들려고 하며 함수이름은 modified369()입니다.
+    document.querySelector('.game01-btn').addEventListener('click', function modified369(num) {
+      const num = document.querySelector('#gameNumber01').value;
+      if (num % 3 == 0) {
+        console.log('박수를 치세요!');
+      } 
+      else {
+        console.log('박수를 치면 안 돼요!');  
+      }
+    })
+    
+    //1-2. 369게임이 업그레이드되어, 3의 배수에서 박수를 치는건 맞지만 9의 배수에서는 박수를 두번 쳐야합니다. 업그레이드 된 369게임 함수의 이름은 upgraded369()입니다.
+    document.querySelector('.game02-btn').addEventListener('click', function upgraded369(num){
+      const num = document.querySelector('#gameNumber02').value;
+      if (num % 9 == 0) {
+        console.log('박수를 두번 치세요!');
+      }
+      if(num % 3 == 0 && num % 9 != 0) {
+        console.log('박수를 한번 치세요!');
+      }
+      else {
+        console.log('박수를 치면 안 돼요!');
+      }
+    })
+
+    //1-3. 각색하지 않은 원래의 369게임 규칙을 적용한 함수를 만들어 봅시다. 함수이름은 original369()입니다. 
+
+
+    //2-1. 공인중개사 1차 시험은 부동산학개론, 민법 2개 과목이 있습니다. 과목마다 100점 만점이지만 두 과목 합해서 120점 이상이면 합격시켜 줍니다. 다만 한 과목이 40점 미만이면 과락으로 불합격합니다. 과목 점수 2개를 파라미터로 입력하면 합격인지 불합격인지 여부를 콘솔창에 출력하는 함수를 만들어 오세요. 함수이름은 passFunction()입니다.
+
+
+    //2-2. passFunction()에서 0에서 100 사이 숫자가 아닌걸 입력하면 장난치지 말라고 console.log창을 띄워보세요.
+
+
+  </script>
+</body>
+</html>
