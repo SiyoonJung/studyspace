@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand">JS맛집</span>
+      <span class="badge bg-dark">Dark 🔄</span>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 
+    ※ 변수문법
+    의의: 1. 길고 복잡한 자료를 저장해서 꺼내쓰기 쉬움
+          2. 특정 값을 기록하고 싶을 때(예: count)
+    선언: var 변수명 = 대입값;
+    작명법: camelCase 이용
+    
+    변수를 1씩 증가시키고 싶을 때? 세가지 중 하나 쓰면됨
+      변수명++;
+      변수 += 1;
+      변수 = 변수+1;    
+
+    변수를 1씩 감소시키고 싶을 때? 세가지 중 하나 쓰면됨
+      변수명--;
+      변수 -= 1;
+      변수 = 변수-1;
+   -->
+
+  <!-- 
+    [오늘의 과제] 다크모드 버튼 눌렀을 때 
+    버튼 누른 횟수가 홀수면 버튼 내부 글자를 Light로 변경,
+    버튼 누른 횟수가 짝수면 버튼 내부 글자를 Dark로 변경해주세요.
+  -->
+  <script>
+    var count = 0;
+    document.querySelector('.badge').addEventListener('click', function(a){
+      count++;
+      if (count % 2 == 1) { 
+        document.querySelector('.badge').innerHTML = 'Light';
+      }
+      else {
+        document.querySelector('.badge').innerHTML = 'Dark'; 
+      }
+    })
+  </script>
+
+  <!-- By Jquery 
+    
+  var count = 0;
+  $('.badge').on('click', function(){
+    count++;
+    if (count % 2 == 1) {
+      $('.badge').html('Light');
+    }
+    else {
+      $('.badge').html('Dark');
+    }
+  })
+
+  -->
+</body>
+</html>
