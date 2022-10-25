@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 4번문제 -->
+  <p>태조 이성계가 태어난 년도는?</p>
+  <input type="text" id="answer">
+  <button id="sendAnswer">제출</button>
+
+  <script>
+    //[1] 내 나이(age)와 고향(hometown)을 변수에 저장해 봅시다. 나이는 계속 변하니 재할당 가능한 변수로, 고향은 변하지 않으니 재할당 불가능한 변수에 저장해 보십시오.
+    let age = 32;
+    const hometown = '서울';
+
+    //[2] 첫 예금액이 5만원 미만이면 이자율이 연 15%, 첫 예금액이 5만원 이상이면 이자율이 연 20%라고 합니다. 그래서 민준이는 변수에 예금액을 넣으면 2년후의 총 예금액을 콘솔창에 출력해주는 함수를 만들려고 합니다.
+    let presentDP = 60000;
+    let futureDP = 0;
+      if (presentDP >= 50000) {
+        futureDP = m*1.2*1.2;
+      }
+      if (presentDP < 50000) {
+        futureDP = m*1.15*1.15;
+      }
+    console.log(futureDP);
+    
+    //[3] 방금 마신 커피의 3분의 2만큼 총 2번 리필해주는 카페가 있습니다. 예를 들면 처음 커피를 90ml 주문하면 첫 리필은 60ml를 해주며, 그 다음 리필은 40ml를 해주는 카페입니다. 그럼 처음 주문한 커피 양에 따라서 최대한 마실 수 있는 커피를 콘솔창에 계산해주는 코드를 작성해 봅시다. 
+    let Quan = 90;
+    let firstRf =  Quan*2/3;
+    let secondRf = firstRf*2/3;
+    let totalRf = firstRf + secondRf;
+    console.log(totalRf);
+
+    //[4] 유저가 <input>에 답을 적고 제출버튼을 누를 수 있는 퀴즈 UI를 만들어 봅시다. 유저가 답을 맞추면 alert('성공'); 유저가 답을 3번 찍어서 못맞추면 alert('멍청아')를 띄워봅시다. (정답은 1335입니다.)
+    var count = 0;
+
+    document.querySelector('#sendAnswer').addEventListener('click', function(){
+      count++;
+      let inputValue = document.querySelector('#answer').value;
+      if (inputValue == 1335) {
+        alert('성공');
+      }
+      else if (count >= 3 && inputValue != 1335) {
+        alert('멍청아');
+        }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class="alert">
+    <span class="count-down">5</span>초 이내 구매시 사은품 증정
+  </div>
+
+  <!--
+    ※ setTimeout() 기본함수
+    의미: X초후에 내부코드를 실행해줌
+    형식: setTimeout(function(){ 실행할코드~ }, 대기시간);
+    주의: 대기시간 단위는 ms (1ms = 1/1000초)
+    예시: setTimeout(function(){ console.log('안녕') }, 1000); // 1초 후에 콘솔창에 '안녕'이 뜸
+  -->
+
+  <!--
+    ※ setInterval() 기본함수
+    의미: X초마다 내부코드를 실행해줌
+    형식: setInterval(function(){ 실행할코드~ }, 대기시간);
+    주의: 대기시간 단위는 ms (1ms = 1/1000초)
+    예시: setInterval(function(){ console.log('안녕') }, 1000); // 1초마다 콘솔창에 '안녕'이 뜸
+  -->
+
+  <!-- 
+    <자바스크립트 문법 vs 브라우저 사용법> 
+    자바스크립트 문법 예시: var let const if function
+    브라우저 문법 예시: document.querySelector() alert() setTimeout() addEventListener()
+
+    기본적인 코딩 방법은
+    웹 브라우저 문법으로 코드를 짜다가
+    코드를 약간 줄이고 싶으면 function,
+    자료나 변수를 잠깐 보관하고 싶으면 var let const,
+    코드를 조건부로 실행하고 싶으면 if 
+    사용하면 됩니다.
+  -->
+
+  <!-- 타이머 삭제 TIP
+    타이머를 삭제하고 싶으면
+    var timer = setInterval(~);
+    이렇게 변수에 저장해둔 후에 타이머를 삭제하고 싶을 때 clearTimeout(타이머) 이 코드를 실행하면 됩니다.
+  -->
+
+  <script>
+    //[예제] 페이지 방문 5초 후에 위의 <div>를 숨겨보세요.
+    setTimeout(function(){ document.querySelector('.alert').style.display = 'none'; }, 5000);
+    // by Jquery - setTimeout(function() {$('.alert').hide();}, 5000);
+
+    //[오늘의 과제] 위에서 만든 <div>안에 "5초 이내 구매시 사은품 증정" 이라는 문자가 있습니다. 1초마다 5라는 문자를 1씩 감소시켜 봅시다. 0이 되면 <div>를 안보이게 처리합시다.
+    
+    //[내 코드] setInterval(function(){
+    //   let countNum = document.querySelector('.count-down');
+    //   countNum = countNum - 1;
+    // }, 1000);
+
+    //[정답]
+    var count = 5;
+    setInterval(function(){
+    count -= 1;
+    if (count >= 0) {
+      document.querySelector('.count-down').innerHTML = count;
+    } 
+    }, 1000);
+  </script>
+
+</body>
+<style>
+  .alert {
+    box-sizing: border-box;
+    border: 1px solid #dddddd;
+    background: #cccc;
+    text-align: center;
+    padding: 15px;
+  }  
+</style>
+</html>

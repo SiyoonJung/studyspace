@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="success.html">
+      <div class="my-3">
+        <input type="text" class="form-control" id="email" />
+      </div>
+      <div class="my-3">
+        <input type="password" class="form-control" id="password" />
+      </div>
+      <button type="submit" class="btn btn-primary">전송</button>
+      <button type="button" class="btn btn-danger" id="close">닫기</button>
+    </form>
+
+    <!-- 
+    ※ 문자검사하는 가장 쉬운 방법
+    형식: '문자'.includes('찾을 단어')
+    결과: 그럼 문자에 찾을 단어가 들어있는지 검사해주고 있으면 true / 없으면 false 출력해줍니다.
+
+    ※ 정규표현식
+    형식: /정규식/.test(정규식으로 검사해 볼 문자)
+    예시: /abc/.test('abcdef')
+    의미: abcdef라는 문자에 abc라는 단어가 있는가?
+    결과: 있으면 true, 없으면 false를 출력해줌 
+
+    ※ 예제로 배워보는 정규식 문법
+    1) /a/.test('abcde') -- true
+    : abcde라는 문자에 a라는 단어가 있는가? 예(true)
+    2) /[a-d]/.test('aefg') -- true
+    : aefg라는 문자에 a부터 d까지 아무 문자 하나가 들어있는가? 예(true)
+    3) /[가-다]/.test('다라마바') -- true
+    : 다라마바 라는 문자에 가부터 다까지 아무 문자가 들어있는가? 예(true)
+    4) /[a-zA-Z]/.test('반가워요') -- false
+    : 반가워요 라는 문자에 아무 알파벳 하나가 들어있는가? 아니오(false)
+    5) /[a-zA-Z]/.test('반가워요a') -- true
+    : 반가워요a 라는 문자에 아무 알파벳 하나가 들어있는가? 예(true)
+    6) /[ㄱ-ㅎ가-힣ㅏ-ㅣ]/.test('반가워요') -- true
+    : 반가워요라는 문자에 아무 한글 하나가 들어있는가? 예(true)
+    7) /\S/.test('abcde') -- true
+    : abcde라는 문자에 특수문자 포함 아무 문자 1개가 들어있는가? 예(true)
+    8) /^a/.test('abcde') -- true
+    : abcde라는 문자가 a로 시작하는가? 예(true)
+    9) /e$/.test('abcde') -- true
+    : abcde라는 문자가 e로 끝나는가? 예(true)
+    10) /(e|f)/.test('abcde') -- true
+    : abcde라는 문자에서 e 또는 f 라는 문자가 들어있나?
+    11) /a+/
+    : aaaa처럼 a가 붙어있는 걸 찾고싶을 때 사용
+    12) /\S+t/
+    : 모든 문자 여러개 다음에 t가 있는지 없는지 검사해줌 (예)aaat, bbt
+ 
+    ※ 이메일 정규식
+    이메일 형식은 어쩌구@어쩌구.어쩌구 이렇게 되어야 합니다.
+    정규식으로 표현해보면 /\S+@\S+\.\S+/
+    . 이라는 기호는 왜 이렇게 썼냐면 마침표는 정규식에서 특수한 문법이기 때문에
+    마침표 문법을 쓰는게 아니라 진짜 마침표를 찾아달라는 의미로 쓰려면 백슬래시를 앞에 붙여야 합니다.
+  -->
+
+    <script>
+      //[예제] 폼전송시 이메일 형식 검증
+      $("form").on("submit", function (e) {
+        var inputValue = document.getElementById("email").value;
+        if (/\S+@\S+\.\S+/.test(inputValue)) {
+          alert("이메일의 형식이 맞습니다.");
+        } else {
+          e.preventDefault();
+          alert("이메일의 형식이 아닙니다.");
+        }
+      });
+      //[오늘의 과제] 폼전송시 유저가 입력한 비번에 영어대문자가 적어도 1개 있는지 없는지 검사해 봅시다. 없으면 alert() 띄워보세요.
+      $("form").on("submit", function (e) {
+        var inputPW = document.getElementById("password").value;
+        if (/[A-Z]/.test(inputPW)) {
+        }
+        else {
+          e.preventDefault();
+          alert("대문자 하나 이상 포함해야 합니다.");
+        }
+      });
+    </script>
+  </body>
+</html>
