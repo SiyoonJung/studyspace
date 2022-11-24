@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+  ※ one-way 애니메이션 들어간 UI 만드는 법 
+  1. 애니메이션 시작 전 화면 만들기
+  2. 애니메이션 종료 후 화면 만들기
+  3. 언제 종료화면으로 변할지 javascript 코드짜기
+  4. 매끄러운 연결을 위해 transition 추가하기
+
+  ※ 오늘의 숙제
+  버튼1, 버튼3 기능도 만들어 옵시다.
+  -->
+  <div style="overflow: hidden;">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="https://codingapple.com/wp-content/uploads/2022/02/car1.png" alt="이미지 슬라이드 첫번째 사진">
+      </div>
+      <div class="slide-box">
+        <img src="https://codingapple.com/wp-content/uploads/2022/02/car2.png" alt="이미지 슬라이드 두번째 사진">
+      </div>
+      <div class="slide-box">
+        <img src="https://codingapple.com/wp-content/uploads/2022/02/car3.png" alt="이미지 슬라이드 세번째 사진">
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+  </div>
+
+<style>
+  .slide-container {
+    width: 300vw;
+    transition: all 0.5s;
+    transform: translateX(-100vw); 
+    /* margin-left: -100vw; 도 가능하나 transform이 보다 매끄러움 */
+  }
+  .slide-box {
+    width: 100vw;
+    float: left;
+  }
+  .slide-box img {
+    width: 100%;
+  }
+</style>
+<script>
+  $('.slide-1').on('click', function(){
+    $('.slide-container').css('transform', 'translateX(0vw)');
+  })
+  $('.slide-2').on('click', function(){
+    $('.slide-container').css('transform', 'translateX(-100vw)');
+  })
+  $('.slide-3').on('click', function(){
+    $('.slide-container').css('transform', 'translateX(-200vw)');
+  })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+  ※ 다음(next-btn)버튼과 이전(prev-btn)버튼 만들기
+  : step by step
+  1. 다음 버튼을 누르면
+  2. 지금 보이는 사진이 1번이면 2번 사진 보여주세요
+  3. 지금 보이는 사진이 2번이면 3번 사진 보여주세요
+
+  ※ [응용] 사진이 4개, 5개가 되어도 다음 버튼 기능이 잘 작동하려면?
+  확장성을 고려해서 일반화하여 코딩해 보세요.
+  -->
+  <div style="overflow: hidden;">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="https://codingapple.com/wp-content/uploads/2022/02/car1.png" alt="이미지 슬라이드 첫번째 사진">
+      </div>
+      <div class="slide-box">
+        <img src="https://codingapple.com/wp-content/uploads/2022/02/car2.png" alt="이미지 슬라이드 두번째 사진">
+      </div>
+      <div class="slide-box">
+        <img src="https://codingapple.com/wp-content/uploads/2022/02/car3.png" alt="이미지 슬라이드 세번째 사진">
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <div class="slide-btn">
+      <button class="slide-1">1</button>
+      <button class="slide-2">2</button>
+      <button class="slide-3">3</button>
+    </div>
+    <div class="next-prev-btn">
+      <button class="prev-btn">◀</button>
+      <button class="next-btn">▶</button>
+    </div>
+  </div>
+
+<style>
+  .slide-container {
+    width: 300vw;
+    transition: all 0.5s;
+    transform: translateX(-100vw); 
+    /* margin-left: -100vw; 도 가능하나 transform이 보다 매끄러움 */
+  }
+  .slide-box {
+    width: 100vw;
+    float: left;
+  }
+  .slide-box img {
+    width: 100%;
+  }
+</style>
+<script>
+  $('.slide-1').on('click', function(){
+    $('.slide-container').css('transform', 'translateX(0vw)');
+  })
+  $('.slide-2').on('click', function(){
+    $('.slide-container').css('transform', 'translateX(-100vw)');
+  })
+  $('.slide-3').on('click', function(){
+    $('.slide-container').css('transform', 'translateX(-200vw)');
+  })
+
+  // if 지금 사진(n)이 1이면 -100vw 이동
+  // if 지금 사진(n)이 2이면 -200vw 이동
+  // if 지금 사진(n)이 3이면 -300vw 이동
+  // 문자 중간에 변수를 집어넣기: 백틱기호와 ${변수}를 이용함
+  // 예: console.log(`문자${n}문자`)
+
+  let n = 1;
+
+  $('.prev-btn').on('click', function(){ 
+    $('.slide-container').css('transform', 'translateX(-' + n + '00vw)');
+    n += 1;
+  })
+  
+  $('.next-btn').on('click', function(){
+    $('.slide-container').css('transform', 'translateX('n + '00vw)');
+    n += 1;
+  })
+</script>
+</body>
+</html>
